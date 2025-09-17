@@ -1,0 +1,26 @@
+---
+- name: gimp role
+  tags:
+    - gimp
+  block:
+
+  # flatpak
+  - when: gimp.flatpak.state != None
+    block:
+    
+    - name: Flatpak state {{ gimp.flatpak.state }}
+      become: true
+      community.general.flatpak:
+        name: org.gimp.GIMP
+        method: "{{ gimp.flatpak.scope }}" 
+        state: "{{ gimp.flatpak.state }}"
+  
+  # apt
+  - when: gimp.apt.state != None
+    block:
+    
+    - name: Apt state {{ gimp.apt.state }}
+      become: true
+      ansible.builtin.apt:
+        name: gimp
+        state: "{{ gimp.apt.state }}"

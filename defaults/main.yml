@@ -1,0 +1,7 @@
+---
+gimp:
+  flatpak:
+    state:
+    scope: system
+  apt:
+    state:
