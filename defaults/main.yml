@@ -1,4 +1,4 @@
 ---
-gimp_flatpak_state:
+gimp_flatpak_state: present
 gimp_flatpak_scope: system
-gimp_apt_state:
+gimp_apt_state: absent
