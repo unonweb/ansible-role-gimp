@@ -16,11 +16,8 @@
         state: "{{ gimp_flatpak_state }}"
   
   # apt
-  - when: gimp_apt_state != None
-    block:
-    
-    - name: Apt gimp -> {{ gimp_apt_state }}
-      become: true
-      ansible.builtin.apt:
-        name: gimp
-        state: "{{ gimp_apt_state }}"
+  - name: Apt gimp -> {{ gimp_apt_state }}
+    become: true
+    ansible.builtin.apt:
+      name: gimp
+      state: "{{ gimp_apt_state }}"
